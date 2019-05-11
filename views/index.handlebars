@@ -1,0 +1,35 @@
+<h1>EAT DA BURGER</h1>
+
+<h2>Burgers to be devoured</h2>
+
+<ul>
+  {{#each burgers}}
+  {{#unless devoured}}
+  <li>{{burger_name}} <button type="submit" class="devour-button" data-id={{id}}>devour</button></li>
+  {{/unless}}
+  {{/each}}
+  {{!-- hard coded html to check connection --}}
+  {{!-- <li>big mac </li> --}}
+</ul>
+
+<h2>Devoured Burgers</h2>
+
+<ul>
+  {{#each burgers}}
+  {{#if devoured}}
+  <li>{{burger_name}}</li>
+  {{/if}}
+  {{/each}}
+
+  <li>whopper</li>
+</ul>
+
+<h2>Add a burger</h2>
+{{!-- assigning action and method for the add burger button --}}
+<form class="create-form" action="/burgers/create" method="POST">
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="burger_name">
+  </div>
+  <button type="submit">Add Burger</button>
+</form>
