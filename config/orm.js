@@ -13,7 +13,7 @@ function printQuestionMarks(num) {
 }
 
 function objToSql(ob) {
-  // column1=value, column2=value2,...
+  
   var arr = [];
 
   for (var key in ob) {
@@ -30,20 +30,19 @@ var orm = {
           if (err) {
             throw err;
           }
-          
           cb(result);
         });
     },
-    create: function(table, cols, vals, cb) {
+    createNew: function(table, cols, vals, cb) {
       var queryString = "INSERT INTO " + table;
-  
+      // build query string with our helper functions to corrctly parse URL
       queryString += " (";
       queryString += cols.toString();
       queryString += ") ";
       queryString += "VALUES (";
       queryString += printQuestionMarks(vals.length);
       queryString += ") ";
-  
+      // log make sure queryString is what we expect
       console.log(queryString);
   
       connection.query(queryString, vals, function(err, result) {

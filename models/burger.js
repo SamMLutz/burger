@@ -8,13 +8,13 @@ var burger = {
             cb(res);
         })
     },
-    create: function(name, cb) {
-        orm.create("burgers", [
+    createNew: function(name, cb) {
+        orm.createNew("burgers", [
           "burger_name", "devoured"
         ], [
           name, false
         ], cb);
-      }
+    }
 }
 
 
