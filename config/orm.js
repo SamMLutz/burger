@@ -33,19 +33,19 @@ var orm = {
           cb(result);
         });
     },
-    createNew: function(table, cols, vals, cb) {
-      var queryString = "INSERT INTO " + table;
+    createNew: function(tableInput, cols, values, cb) {
+      var queryString = "INSERT INTO " + tableInput + " (" + cols.toString() + ") VALUES (" + printQuestionMarks(values.length) + ") ";
       // build query string with our helper functions to corrctly parse URL
-      queryString += " (";
-      queryString += cols.toString();
-      queryString += ") ";
-      queryString += "VALUES (";
-      queryString += printQuestionMarks(vals.length);
-      queryString += ") ";
-      // log make sure queryString is what we expect
+      // queryString += " (";
+      // queryString += cols.toString();
+      // queryString += ") ";
+      // queryString += "VALUES (";
+      // queryString += printQuestionMarks(vals.length);
+      // queryString += ") ";
+      // log  to make sure queryString is what we expect
       console.log(queryString);
   
-      connection.query(queryString, vals, function(err, result) {
+      connection.query(queryString, values, function(err, result) {
         if (err) {
           throw err;
         }
