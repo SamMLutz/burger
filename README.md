@@ -7,9 +7,9 @@
   
  ### Technologies
   for this project we used a variety of technologies and js frameworks
-  *MySQLWorkbench - used to create and store our data in the database titled *burgers_db*
-  *MySQL - to connect to the database
-  *Jquery - used for our 'on click' listeners, ajax calls, and grabbing the input value from the "add burger" input field
-  *Custom ORM- to help simplify our route writing and store some functions
+  MySQLWorkbench - used to create and store our data in the database titled *burgers_db*
+  MySQL - to connect to the database
+  Jquery - used for our 'on click' listeners, ajax calls, and grabbing the input value from the "add burger" input field
+  Custom ORM- to help simplify our route writing and store some functions
     
   
