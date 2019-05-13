@@ -1,23 +1,23 @@
 <h1>EAT DA BURGER</h1>
 
-<h2>Burgers to be devoured</h2>
+<h2 class="burgerList">Burgers to be devoured</h2>
 
 <ul>
   {{#each burgers}}
   {{#unless devoured}}
-  <li>{{burger_name}} <button type="submit" class="devour-button" data-id={{id}}>devour</button></li>
+  <li class="burgerList">{{burger_name}} <button type="submit" class="devour-button" data-id={{id}}>devour</button></li>
   {{/unless}}
   {{/each}}
   {{!-- hard coded html to check assumptions --}}
   {{!-- <li>big mac </li> --}}
 </ul>
 
-<h2>Devoured Burgers</h2>
+<h2 class="devouredBurgers">Devoured Burgers</h2>
 
 <ul>
   {{#each burgers}}
   {{#if devoured}}
-  <li>{{burger_name}}</li>
+  <li class="devouredBurgers">{{burger_name}}</li>
   {{/if}}
   {{/each}}
   {{!-- hard coded html to check assumptions --}}

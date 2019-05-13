@@ -8,18 +8,15 @@ function printQuestionMarks(num) {
   for (var i = 0; i < num; i++) {
     arr.push("?");
   }
-
   return arr.toString();
 }
 
 function objToSql(ob) {
-  
   var arr = [];
 
   for (var key in ob) {
     arr.push(key + "=" + ob[key]);
   }
-
   return arr.toString();
 }
 
@@ -33,19 +30,26 @@ var orm = {
           cb(result);
         });
     },
-    createNew: function(tableInput, cols, values, cb) {
-      var queryString = "INSERT INTO " + tableInput + " (" + cols.toString() + ") VALUES (" + printQuestionMarks(values.length) + ") ";
-      // build query string with our helper functions to corrctly parse URL
-      // queryString += " (";
-      // queryString += cols.toString();
-      // queryString += ") ";
-      // queryString += "VALUES (";
-      // queryString += printQuestionMarks(vals.length);
-      // queryString += ") ";
+    createNew: function(tableInput, columns, values, cb) {
+      // build query string with our helper functions to corrctly parse query
+      var queryString = "INSERT INTO " + tableInput + " (" + columns.toString() + ") VALUES (" + printQuestionMarks(values.length) + ") ";
       // log  to make sure queryString is what we expect
       console.log(queryString);
   
       connection.query(queryString, values, function(err, result) {
+        if (err) {
+          throw err;
+        }
+        cb(result);
+      });
+    },
+    update: function(tableInput, objColVals, id, cb) {
+      var queryString = "UPDATE " + tableInput + " SET " + objToSql(objColVals) + " WHERE id=" + id;
+  
+      // log  to make sure queryString is what we expect
+      console.log(queryString);
+      // console.log(objToSql(objColVals));
+      connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
         }

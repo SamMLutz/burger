@@ -14,8 +14,14 @@ var burger = {
         ], [
           name, false
         ], cb);
-    }
-}
+    },
+    update: function(id, cb) {
+        var currentBurger = id;
+        orm.update("burgers", {
+          devoured: true
+        }, currentBurger, cb);
+      }
+};
 
 
 module.exports = burger;

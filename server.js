@@ -23,17 +23,6 @@ var routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
 
-// hardcode in data to check connection
-// write a get route to log all our burgers
-// connect to the database and select all from burgers and render response
-// app.get("/", function(req, res) {
-//     orm.selectAll("burgers", function(result){
-//         console.log(result)
-//         res.render("index", { burgers: result })
-//     })
-    
-// })
-
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
